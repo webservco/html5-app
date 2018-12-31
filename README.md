@@ -4,7 +4,7 @@ HTML5 App Template
 
 ---
 
-Features:
+## Features:
 - [TODO]
 
 ---
