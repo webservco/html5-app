@@ -4,19 +4,36 @@ HTML5 App Template
 
 ---
 
+Features:
+- [TODO]
+
+---
+
+## Dependencies
+- [npm](https://www.npmjs.com/)
+- [Gulp](https://gulpjs.com/)
+
+---
+
 ## Install
 ```
 npm install
 ```
 
 ### Development
+Serve the `src` files with hot reload:
 ```
 gulp run
 ```
 
 ### Build
+Clean everything and create production files in the `dist` folder:
 ```
 gulp build
+```
+Cleanup:
+```
+gulp clean
 ```
 
 ---
