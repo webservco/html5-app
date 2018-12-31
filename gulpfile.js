@@ -8,6 +8,7 @@ var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
+var nunjucksRender = require('gulp-nunjucks-render');
 
 // BrowserSync Start
 function browserSyncInit(done) {
@@ -25,10 +26,16 @@ function browserSyncReload(done) {
   done();
 };
 
-// Cleans "dist" folder, and image cache
-function clean(done) {
-    del.sync(['dist/*', 'src/css/*']);
+// Cleans: "dist" folder, image cache
+function cleanDist(done) {
+    del.sync(['dist/*']);
     cache.clearAll();
+    done();
+}
+
+// Cleans: src/css, src/*.html
+function cleanSrc(done) {
+    del.sync(['src/css/*', 'src/*.html']);
     done();
 }
 
@@ -59,13 +66,13 @@ function distCssJs() {
 }
 
 // Process fonts
-function fonts() {
+function distFonts() {
     return gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('dist/fonts'));
 }
 
 // Process images
-function images() {
+function distImages() {
     return gulp.src('src/img/**/*.+(png|jpg|jpeg|gif|svg)')
     // Caching images that ran through imagemin
     .pipe(cache(imagemin({
@@ -74,9 +81,23 @@ function images() {
     .pipe(gulp.dest('dist/img'));
 }
 
+// Process templates, generate html files in src
+function html() {
+    // Gets .html and .nunjucks files in pages
+    return gulp.src('src/pages/**/*.+(html|nunjucks)')
+    // Renders template with nunjucks
+    .pipe(nunjucksRender({
+        path: ['src/templates']
+      }))
+    // output files in src folder
+    .pipe(gulp.dest('src'));
+}
+
 // Watch files for changes
 function watchFiles() {
     gulp.watch('src/scss/**/*.scss', css);
+    gulp.watch('src/templates/**/*.html', html);
+    gulp.watch('src/pages/**/*.html', html);
     gulp.watch('src/*.html', browserSyncReload);
     gulp.watch('src/js/**/*.js', browserSyncReload);
 }
@@ -84,26 +105,33 @@ function watchFiles() {
 // Tasks
 // ------------------
 
-// Cleans "dist" folder, and image cache
-gulp.task('clean', clean);
+// Build the project
+gulp.task('build', gulp.series(
+    cleanDist,
+    cleanSrc,
+    css,
+    html,
+    gulp.parallel(
+        distCssJs,
+        distImages,
+        distFonts,
+        distAssets
+    ),
+    cleanSrc
+));
+
+// Cleans both dist and src
+gulp.task('clean', gulp.series(
+    cleanDist,
+    cleanSrc,
+));
 
 // Developement - serve source directory with hot reload
 gulp.task('run', gulp.parallel(
     gulp.series(
-        css, // make sure css files are created
+        css,
+        html,
         browserSyncInit
     ),
     watchFiles
-));
-
-// Build the project
-gulp.task('build', gulp.series(
-    clean,
-    css,
-    gulp.parallel(
-        distCssJs,
-        images,
-        fonts,
-        distAssets
-    )
 ));

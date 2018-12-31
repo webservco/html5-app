@@ -15,8 +15,12 @@ Features:
 
 ---
 
-## Install
+## Usage
+
+### Install
 ```
+git clone https://github.com/webservco/html5-app.git my-project
+cd my-project
 npm install
 ```
 
@@ -31,7 +35,8 @@ Clean everything and create production files in the `dist` folder:
 ```
 gulp build
 ```
-Cleanup:
+
+### Cleanup
 ```
 gulp clean
 ```
@@ -42,3 +47,4 @@ gulp clean
 https://css-tricks.com/gulp-for-beginners/  
 https://george.webb.uno/posts/gulp-and-npm-for-front-end-web-development  
 https://gist.github.com/jeromecoupe/0b807b0c1050647eb340360902c3203a  
+https://zellwk.com/blog/nunjucks-with-gulp/  
