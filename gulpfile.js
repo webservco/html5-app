@@ -27,7 +27,7 @@ function browserSyncReload(done) {
 
 // Cleans "dist" folder, and image cache
 function clean(done) {
-    del.sync(['dist/*']);
+    del.sync(['dist/*', 'src/css/*']);
     cache.clearAll();
     done();
 }
