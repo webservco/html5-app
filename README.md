@@ -5,7 +5,7 @@ HTML5 App Template
 ---
 
 ## Features:
-- History page navigation (local pages are loaded dynamically, including a progress bar)
+- Dynamic page navigation (JavaScript "history" navigation): local pages are loaded dynamically, including a progress bar
 - CSS and JavaScript assets are optimized (concatenated and minified)
 
 ## Libraries included
