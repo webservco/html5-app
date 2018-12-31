@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/webservco/html5-app/issues"
   },
-  "homepage": "https://github.com/webservco/html5-app#readme"
+  "homepage": "https://github.com/webservco/html5-app#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
 }
