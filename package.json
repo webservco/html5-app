@@ -1,0 +1,24 @@
+{
+  "name": "html5-app",
+  "version": "1.0.0",
+  "description": "HTML5 App Template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webservco/html5-app.git"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "author": "Radu Maier <ariademur@webserv.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webservco/html5-app/issues"
+  },
+  "homepage": "https://github.com/webservco/html5-app#readme"
+}
