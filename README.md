@@ -5,7 +5,13 @@ HTML5 App Template
 ---
 
 ## Features:
-- [TODO]
+- History page navigation (local pages are loaded dynamically, including a progress bar)
+- CSS and JavaScript assets are optimized (concatenated and minified)
+
+## Libraries included
+- jquery
+- boostrap bundle (bootstrap and popper)
+- pace-js
 
 ---
 
