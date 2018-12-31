@@ -13,7 +13,7 @@ var del = require('del');
 function browserSyncInit(done) {
     browserSync.init({
         server: {
-            baseDir: "./src"
+            baseDir: ["./", "./src"]
         }
     });
     done();
@@ -43,7 +43,13 @@ function css() {
     .pipe(browserSync.stream());
 };
 
-// Optimizing CSS and JavaScript
+// Copy misc assets
+function distAssets() {
+    return gulp.src('src/*.ico')
+    .pipe(gulp.dest('dist'));
+}
+
+// Optimizing CSS and JavaScript, processes also HTML
 function distCssJs() {
     return gulp.src('src/*.html')
     .pipe(useref())
@@ -97,6 +103,7 @@ gulp.task('build', gulp.series(
     gulp.parallel(
         distCssJs,
         images,
-        fonts
+        fonts,
+        distAssets
     )
 ));
