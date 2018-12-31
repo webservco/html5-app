@@ -44,9 +44,6 @@ function css() {
     return gulp.src('src/scss/**/*.scss') // Gets all files ending with .scss in src/scss and children dirs
     .pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console
     .pipe(gulp.dest('src/css')) // Outputs it in the css folder
-    //.pipe(browserSync.reload({ // Reloading with Browser Sync
-    //        stream: true
-    //})
     .pipe(browserSync.stream());
 };
 
