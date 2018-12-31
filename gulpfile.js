@@ -96,8 +96,8 @@ function html() {
 // Watch files for changes
 function watchFiles() {
     gulp.watch('src/scss/**/*.scss', css);
-    gulp.watch('src/templates/**/*.html', html);
     gulp.watch('src/pages/**/*.html', html);
+    gulp.watch('src/templates/**/*.html', html);
     gulp.watch('src/*.html', browserSyncReload);
     gulp.watch('src/js/**/*.js', browserSyncReload);
 }
@@ -125,6 +125,8 @@ gulp.task('clean', gulp.series(
     cleanDist,
     cleanSrc,
 ));
+
+gulp.task('html', html);
 
 // Developement - serve source directory with hot reload
 gulp.task('run', gulp.parallel(

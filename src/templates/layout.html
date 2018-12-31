@@ -1,28 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-  <!--build:css css/styles.min.css-->
-  <link rel="stylesheet" href="css/styles.css">
-  <!--endbuild-->
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <title>HTML5 App</title>
+    <meta name="description" content="">
+
+    <base href="/">
+
+    <!-- specify favicon path when not in domain root -->
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" href="./../node_modules/pace-js/themes/green/pace-theme-center-simple.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!--endbuild-->
+</head>
 <body>
     {% include "partials/navigation.html" %}
-    {% block content %} {% endblock %}
 
-  <!-- Scripts included: -->
-  <!-- - jquery -->
-  <!-- - boostrap bundle (bootstrap and popper) -->
-  <!-- - app scripts -->
-  <!--build:js js/scripts.min.js -->
-  <script src="./../node_modules/jquery/dist/jquery.js"></script>
-  <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-  <script src="js/lib/historyNavigation.js"></script>
-  <script src="js/main.js"></script>
-  <!-- endbuild -->
+    <main role="main">
+        <div id="content" class="container">
+            {% block content %} {% endblock %}
+        </div>
+    </main>
+
+    <!-- Scripts included: -->
+    <!-- jquery -->
+    <!-- boostrap bundle (bootstrap and popper) -->
+    <!-- pace-js -->
+    <!-- app scripts -->
+    <!--build:js js/scripts.min.js defer -->
+    <script defer src="./../node_modules/jquery/dist/jquery.js"></script>
+    <script defer src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script defer src="./../node_modules/pace-js/pace.js"></script>
+    <script defer src="js/lib/historyNavigation.js"></script>
+    <script defer src="js/main.js"></script>
+    <!-- endbuild -->
+
 </body>
-
 </html>
