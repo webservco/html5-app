@@ -4,7 +4,12 @@
   "description": "HTML5 App Template",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "devel": "gulp devel",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp -v",
+    "run": "gulp run"
   },
   "repository": {
     "type": "git",

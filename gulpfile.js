@@ -126,7 +126,7 @@ gulp.task('clean', gulp.series(
 gulp.task('html', html);
 
 // Developement - serve source directory with hot reload
-gulp.task('run', gulp.parallel(
+gulp.task('devel', gulp.parallel(
     gulp.series(
         css,
         html,
