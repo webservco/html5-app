@@ -1,27 +1,25 @@
 # webservco/html5-app
 
-HTML5 App Template
+A simple HTML5 App Template with dynamic page navigation.
 
 ---
 
 ## Features:
-- Dynamic page navigation (JavaScript "history" navigation): local pages are loaded dynamically, including a progress bar
-- CSS and JavaScript assets are optimized (concatenated and minified)
+- Dynamic page navigation (JavaScript "history" navigation): local pages are loaded dynamically, including a progress bar;
+- Highlight active page in the navigation menu;
+- CSS and JavaScript assets are optimized (concatenated and minified);
 
-## Libraries included
-- jquery
-- boostrap bundle (bootstrap and popper)
-- pace-js
+## Included libraries
+- [jQuery](https://jquery.com/)
+- Boostrap bundle ([Bootstrap](https://getbootstrap.com/) and [Popper](https://popper.js.org/))
+- [PACE](https://www.npmjs.com/package/pace-js)
+> Please check [`package.json`](/package.json) for the actual version numbers currently used
 
 ---
+## Setup
 
-## Dependencies
+### Dependencies
 - [npm](https://www.npmjs.com/)
-- [Gulp](https://gulpjs.com/)
-
----
-
-## Usage
 
 ### Install
 ```
@@ -33,18 +31,36 @@ npm install
 ### Development
 Serve the `src` files with hot reload:
 ```
-gulp run
+npm run devel
 ```
 
-### Build
+### Build the project
 Clean everything and create production files in the `dist` folder:
 ```
-gulp build
+npm run build
 ```
 
 ### Cleanup
 ```
-gulp clean
+npm run clean
+```
+
+---
+
+## Usage
+
+### Dynamic page navigation
+
+Any `a` element using the class `app-nav` will be included in the dynamic page navigation.
+
+### Active page menu highlight
+
+Make sure to keep using the following structure for the navigation menu:
+```
+<nav>
+    <ul>
+        <li class="nav-item">
+            <a class="app-nav ...
 ```
 
 ---
