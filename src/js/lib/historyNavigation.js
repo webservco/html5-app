@@ -27,7 +27,7 @@ $(function() {
         var $mainElement = $("main");
         var $baseHeight = $bodyElement.height() - $mainElement.height();
 
-        $("nav").delegate("a.app-nav", "click", function(e) {
+        $("body").delegate("a.app-nav", "click", function(e) {
             e.preventDefault();
             var url = $(this).attr("href");
             if (url != "#") {

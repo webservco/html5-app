@@ -2,6 +2,20 @@
 
 {% block content %}
 
-    <h1>Index</h1>
+    <h1>HTML5 App</h1>
+
+    <h2>App menu</h2>
+    <p>Dynamic page navigation</p>
+    <ul>
+      <li><a class="app-nav" href="page1.html">Page 1 (10 paragraphs)</a></li>
+      <li><a class="app-nav" href="page2.html">Page 2 (100 paragraphs)</a></li>
+      <li><a class="app-nav" href="page3.html">Page 3 (10000 paragraphs)</a></li>
+    </ul>
+
+    <h2>External links</h2>
+    <p>Ignored by the app navigation</p>
+    <ul>
+      <li><a href="https://github.com/webservco/html5-app">GitHub</a></li>
+    </ul>
 
 {% endblock %}
