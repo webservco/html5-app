@@ -7,9 +7,8 @@
     "build": "gulp build",
     "clean": "gulp clean",
     "devel": "gulp devel",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp -v",
-    "run": "gulp run"
+    "run": "gulp run",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
   },
   "homepage": "https://github.com/webservco/html5-app#readme",
   "devDependencies": {
+    "@webservco/history-navigation": "^1.0.0",
     "bootstrap": "^4.2.1",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",

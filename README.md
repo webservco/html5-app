@@ -13,6 +13,7 @@ A simple HTML5 App Template with dynamic page navigation.
 - [jQuery](https://jquery.com/)
 - Boostrap bundle ([Bootstrap](https://getbootstrap.com/) and [Popper](https://popper.js.org/))
 - [PACE](https://www.npmjs.com/package/pace-js)
+- [history-navigation](https://www.npmjs.com/package/@webservco/history-navigation)
 > Please check [`package.json`](/package.json) for the actual version numbers currently used
 
 ---
@@ -63,6 +64,7 @@ Make sure to keep using the following structure for the navigation menu:
             <a class="app-nav ...
 ```
 
+> For back button navigation, links will be highlighted only if they contain a full URL.
 ---
 
 ## References

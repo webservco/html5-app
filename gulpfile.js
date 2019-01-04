@@ -15,7 +15,8 @@ function browserSyncInit(done) {
     browserSync.init({
         server: {
             baseDir: ["./", "./src"]
-        }
+        },
+        port: 3000
     });
     done();
 };

@@ -1,3 +1,4 @@
+{% set appUrl = "http://localhost:3000/" %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 <body>
     {% include "partials/navigation.html" %}
 
-    <main role="main">
+    <main role="main" id="main">
         <div id="content" class="container">
             {% block content %} {% endblock %}
         </div>
@@ -36,7 +37,8 @@
     <script defer src="./../node_modules/jquery/dist/jquery.js"></script>
     <script defer src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script defer src="./../node_modules/pace-js/pace.js"></script>
-    <script defer src="js/lib/historyNavigation.js"></script>
+    <script defer src="./../node_modules/@webservco/history-navigation/src/jquery.history-navigation.js
+"></script>
     <script defer src="js/main.js"></script>
     <!-- endbuild -->
 
