@@ -79,4 +79,8 @@ Use the following structure for the navigation menu:
 
 > Note: for back button navigation, navigation links will be highlighted only if they contain a full URL.
 
+## Advanced usage
+
+For advanced customization please see the @webservco/history-navigation plugin documentation.
+
 ---
