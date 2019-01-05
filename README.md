@@ -2,6 +2,8 @@
 
 A simple HTML5 App Template with dynamic page navigation.
 
+This project showcases the jQuery plugin [@webservco/history-navigation](https://www.npmjs.com/package/@webservco/history-navigation).
+
 ---
 
 ## Features:
@@ -13,7 +15,7 @@ A simple HTML5 App Template with dynamic page navigation.
 - [jQuery](https://jquery.com/)
 - Boostrap bundle ([Bootstrap](https://getbootstrap.com/) and [Popper](https://popper.js.org/))
 - [PACE](https://www.npmjs.com/package/pace-js)
-- [history-navigation](https://www.npmjs.com/package/@webservco/history-navigation)
+- [@webservco/history-navigation](https://www.npmjs.com/package/@webservco/history-navigation)
 > Please check [`package.json`](/package.json) for the actual version numbers currently used
 
 ---
@@ -52,23 +54,25 @@ npm run clean
 
 ### Dynamic page navigation
 
+Use the following structure in your document:
+```
+<main role="main" id="main">
+    <div id="content" class="container">
+        {page content...}
+```
+
 Any `a` element using the class `app-nav` will be included in the dynamic page navigation.
 
 ### Active page menu highlight
 
-Make sure to keep using the following structure for the navigation menu:
+Use the following structure for the navigation menu:
 ```
-<nav>
+<nav class="navbar">
     <ul>
         <li class="nav-item">
             <a class="app-nav ...
 ```
 
-> For back button navigation, links will be highlighted only if they contain a full URL.
----
+> Note: for back button navigation, navigation links will be highlighted only if they contain a full URL.
 
-## References
-https://css-tricks.com/gulp-for-beginners/  
-https://george.webb.uno/posts/gulp-and-npm-for-front-end-web-development  
-https://gist.github.com/jeromecoupe/0b807b0c1050647eb340360902c3203a  
-https://zellwk.com/blog/nunjucks-with-gulp/  
+---
