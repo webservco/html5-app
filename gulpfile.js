@@ -10,11 +10,17 @@ var cache = require('gulp-cache');
 var del = require('del');
 var nunjucksRender = require('gulp-nunjucks-render');
 
+// Process assets
+function assets() {
+    return gulp.src('src/*.ico')
+    .pipe(gulp.dest('app'));
+}
+
 // BrowserSync Start
 function browserSyncInit(done) {
     browserSync.init({
         server: {
-            baseDir: ["./", "./src"]
+            baseDir: ["./", "./app"]
         },
         port: 3000
     });
@@ -38,6 +44,13 @@ function browserSyncReload(done) {
   done();
 };
 
+// Cleans: "app" folder, image cache
+function cleanApp(done) {
+    del.sync(['app/*']);
+    cache.clearAll();
+    done();
+}
+
 // Cleans: "dist" folder, image cache
 function cleanDist(done) {
     del.sync(['dist/*']);
@@ -45,17 +58,11 @@ function cleanDist(done) {
     done();
 }
 
-// Cleans: src/css, src/*.html
-function cleanSrc(done) {
-    del.sync(['src/css/*', 'src/*.html']);
-    done();
-}
-
 // Process scss
 function css() {
     return gulp.src('src/scss/**/*.scss') // Gets all files ending with .scss in src/scss and children dirs
     .pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console
-    .pipe(gulp.dest('src/css')) // Outputs it in the css folder
+    .pipe(gulp.dest('app/css')) // Outputs it in the css folder
     .pipe(browserSync.stream());
 };
 
@@ -67,7 +74,7 @@ function distAssets() {
 
 // Optimizing CSS and JavaScript, processes also HTML
 function distCssJs() {
-    return gulp.src('src/*.html')
+    return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulpIf('*.css', cssnano()))
@@ -90,7 +97,7 @@ function distImages() {
     .pipe(gulp.dest('dist/img'));
 }
 
-// Process templates, generate html files in src
+// Process templates, generate html files in app
 function html() {
     // Gets .html and .nunjucks files in pages
     return gulp.src('src/pages/**/*.+(html|nunjucks)')
@@ -99,7 +106,13 @@ function html() {
         path: ['src/templates']
       }))
     // output files in src folder
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('app'));
+}
+
+// Process js files
+function js() {
+    return gulp.src('src/js/**/*.js')
+    .pipe(gulp.dest('app/js'));
 }
 
 // Watch files for changes
@@ -107,8 +120,9 @@ function watchFiles() {
     gulp.watch('src/scss/**/*.scss', css);
     gulp.watch('src/pages/**/*.html', html);
     gulp.watch('src/templates/**/*.html', html);
-    gulp.watch('src/*.html', browserSyncReload);
-    gulp.watch('src/js/**/*.js', browserSyncReload);
+    gulp.watch('app/*.html', browserSyncReload);
+    gulp.watch('src/js/**/*.js', js);
+    gulp.watch('app/js/**/*.js', browserSyncReload);
 }
 
 // Tasks
@@ -117,8 +131,9 @@ function watchFiles() {
 // Build the project
 gulp.task('build', gulp.series(
     cleanDist,
-    cleanSrc,
+    cleanApp,
     css,
+    js,
     html,
     gulp.parallel(
         distCssJs,
@@ -126,22 +141,22 @@ gulp.task('build', gulp.series(
         distFonts,
         distAssets
     ),
-    cleanSrc
+    cleanApp
 ));
 
 // Cleans both dist and src
 gulp.task('clean', gulp.series(
     cleanDist,
-    cleanSrc,
+    cleanApp,
 ));
-
-gulp.task('html', html);
 
 // Developement - serve source directory with hot reload
 gulp.task('devel', gulp.parallel(
     gulp.series(
         css,
+        js,
         html,
+        assets,
         browserSyncInit
     ),
     watchFiles

@@ -8,7 +8,6 @@
     "clean": "gulp clean",
     "devel": "gulp devel",
     "dist": "gulp dist",
-    "run": "gulp run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
