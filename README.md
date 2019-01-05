@@ -32,7 +32,7 @@ npm install
 ```
 
 ### Development
-Serve the `src` files with hot reload:
+Browser test: serve the `src` files with hot reload:
 ```
 npm run devel
 ```
@@ -41,6 +41,10 @@ npm run devel
 Clean everything and create production files in the `dist` folder:
 ```
 npm run build
+```
+Browser test: serve the `dist` files:
+```
+npm run dist
 ```
 
 ### Cleanup

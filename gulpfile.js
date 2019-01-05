@@ -21,6 +21,17 @@ function browserSyncInit(done) {
     done();
 };
 
+// BrowserSync Start - dist directory
+function browserSyncInitDist(done) {
+    browserSync.init({
+        server: {
+            baseDir: ["./", "./dist"]
+        },
+        port: 3000
+    });
+    done();
+};
+
 // BrowserSync Reload
 function browserSyncReload(done) {
   browserSync.reload();
@@ -135,3 +146,6 @@ gulp.task('devel', gulp.parallel(
     ),
     watchFiles
 ));
+
+// Developement - serve dist directory
+gulp.task('dist', browserSyncInitDist);
