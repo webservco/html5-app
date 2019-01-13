@@ -13,8 +13,12 @@
     <!-- specify favicon path when not in domain root -->
     <link href="favicon.ico" rel="icon" type="image/x-icon" />
 
+    <!-- Styles available -->
+    <!-- main: bootstrap, fontawesome css -->
+    <!-- pace-theme-center-simple -->
+    <!-- app -->
     <!--build:css css/styles.min.css-->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css"><!-- contains: bootstrap, fontawesome css -->
     <link rel="stylesheet" href="./../node_modules/pace-js/themes/green/pace-theme-center-simple.css">
     <link rel="stylesheet" href="css/app.css">
     <!--endbuild-->
@@ -28,17 +32,28 @@
         </div>
     </main>
 
-    <!-- Scripts included: -->
+    <script>
+    //<![CDATA[
+    var urlApp = '/';
+    //FontAwesomeConfig = { searchPseudoElements: true }; // enable if using Font Awesome SVG with pseudo elements
+    //]]>
+    </script>
+    <!-- Scripts available: -->
     <!-- jquery -->
     <!-- boostrap bundle (bootstrap and popper) -->
     <!-- pace-js -->
     <!-- history-navigation -->
+    <!-- fontawesome svg -->
     <!-- app script: main.js -->
     <!--build:js js/scripts.min.js defer -->
     <script defer src="./../node_modules/jquery/dist/jquery.js"></script>
     <script defer src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script defer src="./../node_modules/pace-js/pace.js"></script>
     <script defer src="./../node_modules/@webservco/history-navigation/src/jquery.history-navigation.js"></script>
+    <!-- Font Awesome SVG. Disable if using Font Awesome CSS
+    <script defer src="./../../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+    <!-- -->
+    <!-- App -->
     <script defer src="js/main.js"></script>
     <!-- endbuild -->
 

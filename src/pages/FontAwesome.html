@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Font Awesome</h1>
+
+<h2>Usage</h2>
+
+<h3>Regular</h3>
+<p>
+    <code>&lt;i class="fas fa-music"&gt;&lt;/i&gt;</code>
+    <i class="fas fa-music"></i>
+</p>
+
+<h3>Pseudo element - blank container (after)</h3>
+<p>
+    <code>&lt;i class="fa-pseudo-element-container"&gt;&lt;i class="fa-pseudo-element-after"&gt;&lt;/i&gt;&lt;/i&gt;</code>
+    <i class="fa-pseudo-element-container"><i class="fa-pseudo-element-after"></i></i>
+</p>
+
+<h3>Pseudo element - icon (before)</h3>
+<p>
+    <code>&lt;i class="fa-pseudo-element-before"&gt;&lt;/i&gt;</code>
+    <i class="fa-pseudo-element-before"></i> Music
+</p>
+{% endblock %}

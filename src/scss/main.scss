@@ -1,6 +1,16 @@
-// Bootstrap overrides
+// Bootstrap
 //$body-bg: #212529;
 //$body-color: #fff;
-
-// Bootstrap and its default variables
+$theme-colors: (
+    "primary": #436f4d, // Custom primary color
+);
 @import "node_modules/bootstrap/scss/bootstrap";
+
+// Font Awesome CSS
+// Disable if using Font Awesome SVG
+/* */
+//$fa-font-path: "../webfonts";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+/* */

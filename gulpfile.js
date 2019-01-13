@@ -83,8 +83,8 @@ function distCssJs() {
 
 // Process fonts
 function distFonts() {
-    return gulp.src('src/fonts/**/*')
-    .pipe(gulp.dest('dist/fonts'));
+    return gulp.src('app/webfonts/**/*')
+    .pipe(gulp.dest('dist/webfonts'));
 }
 
 // Process images
@@ -95,6 +95,11 @@ function distImages() {
         interlaced: true,
     })))
     .pipe(gulp.dest('dist/img'));
+}
+
+function fonts() {
+    return gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
+    .pipe(gulp.dest('app/webfonts'));
 }
 
 // Process templates, generate html files in app
@@ -133,6 +138,7 @@ gulp.task('build', gulp.series(
     cleanDist,
     cleanApp,
     css,
+    fonts,
     js,
     html,
     gulp.parallel(
@@ -154,6 +160,7 @@ gulp.task('clean', gulp.series(
 gulp.task('devel', gulp.parallel(
     gulp.series(
         css,
+        fonts,
         js,
         html,
         assets,

@@ -15,6 +15,7 @@ This project showcases the jQuery plugin [@webservco/history-navigation](https:/
 - [jQuery](https://jquery.com/)
 - Boostrap bundle ([Bootstrap](https://getbootstrap.com/) and [Popper](https://popper.js.org/))
 - [PACE](https://www.npmjs.com/package/pace-js)
+- [@fortawesome/fontawesome-free](https://www.npmjs.com/package/@fortawesome/fontawesome-free)
 - [@webservco/history-navigation](https://www.npmjs.com/package/@webservco/history-navigation)
 > Please check [`package.json`](/package.json) for the actual version numbers currently used
 
@@ -79,8 +80,12 @@ Use the following structure for the navigation menu:
 
 > Note: for back button navigation, navigation links will be highlighted only if they contain a full URL.
 
-## Advanced usage
+### Advanced usage
 
 For advanced customization please see the @webservco/history-navigation plugin documentation.
 
 ---
+
+## Documentation
+
+- [Font Awesome](/docs/FontAwesome.md)

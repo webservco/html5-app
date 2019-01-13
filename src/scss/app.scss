@@ -12,3 +12,33 @@ body {
 .container {
     padding-top: 1rem;
 }
+
+// Font Awesome pseudo element test
+.fa-pseudo-element-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.fa-pseudo-element-after:after {
+    position: absolute;
+    //display: none; // needed when using FA SVG
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f001";
+}
+
+.fa-pseudo-element-before:before {
+    display: inline-block;
+    //display: none; // needed when using FA SVG
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f001";
+}
