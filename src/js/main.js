@@ -1,6 +1,7 @@
-/* main */
+/* main.js */
 
-$(document).ready(function() {
+/* on document ready (not called on ajax load) */
+$( document ).ready(function() {
     /* history navigation */
     $(document).historyNavigation({
         linkClass: "app-nav", // class of the links which trigger the navigation
@@ -12,9 +13,17 @@ $(document).ready(function() {
         },
         onUrlLoaded: function() { // callback
             //console.log("callback: onUrlLoaded");
+            initialise(); /* on ajax page load */
         },
         onPopState: function( event ) { // callback
             //console.log("callback: onPopstate");
         },
     });
+
+    initialise(); /* on regular page load */
+});
+
+/* on any ajax call completed */
+$( document ).ajaxComplete(function( event, xhr, settings ) { //http://api.jquery.com/ajaxcomplete/
+    //console.log('ajaxComplete');
 });
