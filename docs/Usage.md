@@ -12,7 +12,7 @@ The layout is based on the [Bootstrap starter template](https://getbootstrap.com
 
 ## Font Awesome
 
-[Documentation](/docs/FontAwesome.md)
+[Font Awesome usage](/docs/FontAwesome.md)
 
 ---
 
