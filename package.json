@@ -27,7 +27,7 @@
   "homepage": "https://github.com/webservco/html5-app#readme",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
-    "@webservco/history-navigation": "^1.4.0",
+    "@webservco/history-navigation": "^1.5.0",
     "bootstrap": "^4.2.1",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",

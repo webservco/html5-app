@@ -11,9 +11,19 @@ $( document ).ready(function() {
         onLinkClick: function( element ) { // callback
             //console.log("callback: onLinkClick");
         },
-        onUrlLoaded: function( element ) { // callback
+        onUrlLoaded: function( newUrl ) { // callback
             //console.log("callback: onUrlLoaded");
+
             initialise(); /* on ajax page load */
+        },
+        onUrlLoadError: function( newUrl, resultObject ) {
+            //console.log("callback: onUrlLoadError");
+            /* set custom content on error */
+            $("#content").html(
+                "<div class=\"alert alert-danger\" role=\"alert\"><h1>Error loading page</h1>" +
+                "Status: " + resultObject.status + " " + resultObject.statusText +
+                "</div>"
+            );
         },
         onPopState: function( event ) { // callback
             //console.log("callback: onPopstate");
